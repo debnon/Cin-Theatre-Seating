@@ -3,7 +3,7 @@ import java.util.UUID;
 
 public class Kiosk {
 
-    public HashMap<String, Integer> theatres;
+    public HashMap<String, HashMap> theatres;
     HashMap<String, HashMap<String, Integer>> customers = new HashMap<>();
 
     Kiosk() {
@@ -22,6 +22,12 @@ public class Kiosk {
 
     public HashMap<String, Integer> getCustomer(String CUST_ID) {
         return customers.get(CUST_ID);
+    }
+
+    public String addTheatre(Theatre theatre, HashMap movies) {
+        String THEATRE_ID = UUID.randomUUID().toString();
+        theatres.put(THEATRE_ID, movies);
+        return THEATRE_ID;
     }
 
 //    assignID(Customer customer) {

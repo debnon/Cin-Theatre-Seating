@@ -5,6 +5,7 @@
 // seats recorded as allocated
 
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Customer {
 
@@ -21,6 +22,19 @@ public class Customer {
 
     public String getCustomerID() {
         return CUST_ID;
+    }
+
+    public String getCustomerName() {
+        return NAME;
+    }
+
+    public void orderTicket(String movieName) {
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 3);
+        tickets.put(movieName, randomNum);
+    }
+
+    public void checkCustomerSeats() {
+
     }
 
   //    newOrder(String movieName) {

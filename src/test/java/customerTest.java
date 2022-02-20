@@ -7,8 +7,7 @@ public class customerTest {
     public void customerInitTest() {
         Kiosk kiosk = new Kiosk();
         Customer customer = new Customer("James", kiosk);
-        String customerID = customer.getCustomerID();
 
-        Assertions.assertEquals("James", kiosk.getCustomer(customerID));
+        Assertions.assertEquals("James", customer.getCustomerName());
     }
 }
