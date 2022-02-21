@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Kiosk {
 
     public ArrayList<Theatre> theatres = new ArrayList<>();
-    HashMap<String, HashMap<String, ArrayList<String>>> customers = new HashMap<>();
+    public ArrayList<String> customers = new ArrayList<>();
 
     Kiosk() {
 
@@ -13,20 +13,20 @@ public class Kiosk {
 
     public String newCustomer(HashMap<String, ArrayList<String>> tickets) {
         String CUST_ID = UUID.randomUUID().toString();
-        customers.put(CUST_ID, tickets);
+        customers.add(CUST_ID);
         return CUST_ID;
     }
 
-    public HashMap<String, HashMap<String, ArrayList<String>>> getAllCustomers() {
+    public ArrayList<String> getAllCustomerIDs() {
         return customers;
-    }
-
-    public HashMap<String, ArrayList<String>> getCustomer(String CUST_ID) {
-        return customers.get(CUST_ID);
     }
 
     public void addTheatre(Theatre theatre) {
         theatres.add(theatre);
+    }
+
+    public ArrayList<Theatre> getAllTheatres() {
+        return theatres;
     }
 
     public ArrayList<String> newOrder(String movieName, Integer ticketCount) throws Exception {

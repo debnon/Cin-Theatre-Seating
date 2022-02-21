@@ -13,6 +13,6 @@ public class kioskTest {
         customer.orderTicket("Wallie");
         String customerID = customer.getCustomerID();
 
-        Assertions.assertEquals("Wallie", kiosk.getCustomer(customerID));
+        Assertions.assertEquals(customer.getCustomerID(), kiosk.getAllCustomerIDs().get(0));
     }
 }
