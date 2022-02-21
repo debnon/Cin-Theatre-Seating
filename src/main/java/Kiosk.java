@@ -1,46 +1,47 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
 public class Kiosk {
 
-    public HashMap<String, HashMap> theatres;
-    HashMap<String, HashMap<String, Integer>> customers = new HashMap<>();
+    public ArrayList<Theatre> theatres = new ArrayList<>();
+    HashMap<String, HashMap<String, ArrayList<String>>> customers = new HashMap<>();
 
     Kiosk() {
 
     }
 
-    public String newCustomer(HashMap<String, Integer> tickets) {
+    public String newCustomer(HashMap<String, ArrayList<String>> tickets) {
         String CUST_ID = UUID.randomUUID().toString();
         customers.put(CUST_ID, tickets);
         return CUST_ID;
     }
 
-    public HashMap<String, HashMap<String, Integer>> getAllCustomers() {
+    public HashMap<String, HashMap<String, ArrayList<String>>> getAllCustomers() {
         return customers;
     }
 
-    public HashMap<String, Integer> getCustomer(String CUST_ID) {
+    public HashMap<String, ArrayList<String>> getCustomer(String CUST_ID) {
         return customers.get(CUST_ID);
     }
 
-    public String addTheatre(Theatre theatre, HashMap movies) {
-        String THEATRE_ID = UUID.randomUUID().toString();
-        theatres.put(THEATRE_ID, movies);
-        return THEATRE_ID;
+    public void addTheatre(Theatre theatre) {
+        theatres.add(theatre);
     }
 
-//    assignID(Customer customer) {
-//
-//    }
-//
-//    newOrder() {
-//
-//    }
-//
-//    public boolean checkCustomer() {
-//        return
-//    }
+    public ArrayList<String> newOrder(String movieName, Integer ticketCount) throws Exception {
+        for (Theatre theatre : theatres) {
+            if (theatre.checkMoviePresence(movieName)) {
+                return theatre.assignSeats(movieName, ticketCount);
+            }
+        }
+
+        throw new RuntimeException("That film isn't available");
+    }
+
+
+
+
 
 
 
