@@ -10,4 +10,17 @@ public class customerTest {
 
         Assertions.assertEquals("James", customer.getCustomerName());
     }
+
+    @Test
+    public void checkTicketsTest() throws Exception {
+        Kiosk kiosk = new Kiosk();
+        Customer customer = new Customer("James", kiosk);
+        Theatre theatre1 = new Theatre(kiosk);
+        theatre1.addMovie("Wallie");
+
+        customer.orderTicket("Wallie");
+
+
+        Assertions.assertEquals("A0", customer.checkCustomerSeats("Wallie").get(0));
+    }
 }

@@ -4,7 +4,6 @@
 // customer is allocated appropriate seats from the seating plan
 // seats recorded as allocated
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
@@ -36,9 +35,11 @@ public class Customer {
         tickets.put(movieName, newTickets);
     }
 
-    public void checkCustomerSeats() {
-
+    public ArrayList<String> checkCustomerSeats(String movieName) {
+        return tickets.get(movieName);
     }
+
+
 
   //    newOrder(String movieName) {
   //        kiosk.findMovie();
