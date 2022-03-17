@@ -19,8 +19,10 @@ public class customerTest {
         theatre1.addMovie("Wallie");
 
         customer.orderTicket("Wallie");
-
+        customer.orderTicket("Wallie");
 
         Assertions.assertEquals("A1", customer.checkCustomerSeats("Wallie").get(0));
+        Assertions.assertEquals("A2", customer.checkCustomerSeats("Wallie").get(1));
+
     }
 }

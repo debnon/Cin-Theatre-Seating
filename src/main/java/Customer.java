@@ -32,7 +32,17 @@ public class Customer {
     public void orderTicket(String movieName) throws Exception {
         int randomNum = ThreadLocalRandom.current().nextInt(1, 3);
         ArrayList<String> newTickets = kiosk.newOrder(movieName, randomNum);
-        tickets.put(movieName, newTickets);
+        if (tickets.containsKey(movieName)) {
+
+            ArrayList<String> oldTickets = tickets.get(movieName);
+            for (String ticket : newTickets) {
+                oldTickets.add(ticket);
+            }
+            tickets.put(movieName, oldTickets);
+
+        } else {
+          tickets.put(movieName, newTickets);
+        }
     }
 
     public ArrayList<String> checkCustomerSeats(String movieName) {
