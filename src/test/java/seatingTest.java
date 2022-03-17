@@ -35,8 +35,35 @@ public class seatingTest {
         Assertions.assertEquals(seat, seating.getSeats().get(seatNum));
     }
 
-    @Test
-    public void seatingSecondRow() {
-        Assertions.assertEquals("A6", seating.getSeats().get(5));
+    static Stream<Arguments> seatingAndSeatNumberingProviderSecondRow() {
+        return Stream.of(
+                arguments("B1", 5),
+                arguments("B2", 6),
+                arguments("B3", 7),
+                arguments("B4", 8),
+                arguments("B5", 9)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("seatingAndSeatNumberingProviderSecondRow")
+    public void seatingSecondRow(String seat, Integer seatNum) {
+        Assertions.assertEquals(seat, seating.getSeats().get(seatNum));
+    }
+
+    static Stream<Arguments> seatingAndSeatNumberingProviderThirdRow() {
+        return Stream.of(
+                arguments("C1", 10),
+                arguments("C2", 11),
+                arguments("C3", 12),
+                arguments("C4", 13),
+                arguments("C5", 14)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("seatingAndSeatNumberingProviderThirdRow")
+    public void seatingThirdRow(String seat, Integer seatNum) {
+        Assertions.assertEquals(seat, seating.getSeats().get(seatNum));
     }
 }
