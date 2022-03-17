@@ -21,6 +21,6 @@ public class customerTest {
         customer.orderTicket("Wallie");
 
 
-        Assertions.assertEquals("A0", customer.checkCustomerSeats("Wallie").get(0));
+        Assertions.assertEquals("A1", customer.checkCustomerSeats("Wallie").get(0));
     }
 }

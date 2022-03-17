@@ -11,14 +11,14 @@ public class Seating {
 
     private void constructSeating() {
 
-        Integer i = 1;
+        Integer i = 0;
         while (i <= 15) {
             if (i <= 5) {
                 seats.put(i, "A" + i);
             } else if (i <= 10) {
-                seats.put(i % 5, "A" + i % 5);
+                seats.put(i % 5, "A" + (i % 5 + 1));
             } else {
-                seats.put(i % 10, "A" + i % 10);
+                seats.put(i % 10, "A" + (i % 10 + 1));
             }
 
             i++;
